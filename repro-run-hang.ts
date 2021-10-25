@@ -1,6 +1,6 @@
 /**
  * Execute Deno.run with file that generates specified length of characters.
- * @param length
+ * @param length Length of output to generate.
  */
 async function Run(length: number) {
   console.log(`Running with length ${length}`);
