@@ -1,10 +1,11 @@
-# Repro Bug
-Deno.run hangs when a child process returns **more than 8200 characters** and the **stdout == piped**.
+`Deno.run` **hangs** when a child process returns **more than 8200 characters** and the **stdout == piped**.
 
 # Repro:
 - git clone `https://github.com/CarlosOnline/deno-bugs.git`
 - cd deno-bugs
 - `deno.exe run -A repro-run-hang.ts`
+
+**Deno will hang between 8100 and 8200 characters.**
 
 # Test code:
 ```
@@ -15,7 +16,7 @@ Deno.run hangs when a child process returns **more than 8200 characters** and th
 ```
 /**
  * Execute Deno.run with file that generates specified length of characters.
- * @param length
+ * @param length Length of output to generate.
  */
 async function Run(length: number) {
   console.log(`Running with length ${length}`);
